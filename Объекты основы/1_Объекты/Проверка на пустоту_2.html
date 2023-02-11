@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        'use strict'
+
+        let obj1 = {};     
+        let obj2 = {
+            name: 'John',
+            age: 30,
+        };
+
+        function isEmpty (obj) {
+            let count = 0;
+
+            for (let key in obj) {
+                count++;
+            }
+
+            alert (!(count));
+        }
+
+        isEmpty (obj1);
+        isEmpty (obj2);
+
+    </script>
+</body>
+</html>
