@@ -7,24 +7,72 @@
     <title></title>
 </head>
 <body>
-    <script>
-        let data = {
-            "Рыбы": {
-                "форель": {},
-                "лосось": {}
-            },
+    <div id="container"></div> 
+    
+    <!-- <ul>
+        <li>Рыбы
+          <ul>
+            <li>форель</li>
+            <li>лосось</li>
+          </ul>
+        </li>
+        <li>Деревья
+          <ul>
+            <li>Огромные
+              <ul>
+                <li>секвойя</li>
+                <li>дуб</li>
+              </ul>
+            </li>
+            <li>Цветковые
+              <ul>
+                <li>яблоня</li>
+                <li>магнолия</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul> -->
 
-            "Деревья": {
-                "Огромные": {
-                "секвойя": {},
-                "дуб": {}
-                },
-                "Цветковые": {
-                "яблоня": {},
-                "магнолия": {}
-                }
-            }
-        };
+    <script>
+
+      let data = {
+        "Рыбы": {
+          "форель": {},
+          "лосось": {}
+        },
+  
+        "Деревья": {
+          "Огромные": {
+            "секвойя": {},
+            "дуб": {}
+          },
+          "Цветковые": {
+            "яблоня": {},
+            "магнолия": {}
+          }
+        }
+      };
+    
+      function createTree(container, obj) {
+        container.innerHTML = createTreeText(obj);
+      }
+  
+      function createTreeText (obj) {
+        let li ='';
+        let ul;
+        for (let key in obj) {
+          li = li + '<li>' + key + createTreeText(obj[key]) + '</li>';
+        }
+        if (li) {
+          ul = '<ul>' + li + '</ul>';
+        }
+        return ul || '';
+      }
+
+      createTree(container, data);
+      
     </script>
+
 </body>
 </html>
