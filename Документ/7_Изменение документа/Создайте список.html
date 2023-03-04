@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+
         let ul = document.createElement('ul');
         document.body.append(ul);
         
@@ -17,8 +18,8 @@
             if (!point) break;
 
             let li = document.createElement('li');
+            li.textContent = point;
             ul.append(li);
-            li.innerHTML = point;
         } while (true);
 
     </script>

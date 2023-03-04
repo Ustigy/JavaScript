@@ -45,7 +45,6 @@
 
     for (let li of lis) {
         let count = li.querySelectorAll('li').length;
-        console.log(count)
         if (count === 0) continue;
 
         li.firstChild.data += '[' + count + ']';
