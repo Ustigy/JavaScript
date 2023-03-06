@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    #hours {
+      color: red;
+    }
+
+    #minutes {
+      color: green;
+    }
+
+    #seconds {
+      color: blue;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <div id = 'timer'>
+    <span id = 'hours'>hours</span> :
+    <span id = 'minutes'>minutes</span> :
+    <span id = 'seconds'>seconds</span>
+  </div>
+
+
+<script>
+
+  let update = function() {
+    let date = new Date();
+
+    let hours = document.getElementById('hours');
+    let hoursValue = date.getHours();
+    hours.innerHTML = (hoursValue > 10) ? hoursValue : '0' + hoursValue;
+
+        
+    let minutes = document.getElementById('minutes');
+    let minutesValue = date.getMinutes();
+    minutes.innerHTML = (minutesValue > 10) ? minutesValue : '0' + minutesValue;
+
+
+    let seconds = document.getElementById('seconds');
+    let secondsValue = date.getSeconds();
+    seconds.innerHTML = (secondsValue > 10) ? secondsValue : '0' + secondsValue; 
+  };
+
+  setInterval(() => update(), 1000);
+
+</script>
+
+
+</body>
+</html>
