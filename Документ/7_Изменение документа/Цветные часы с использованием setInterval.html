@@ -31,6 +31,9 @@
     <span id = 'seconds'>seconds</span>
   </div>
 
+  <input type = 'button' onclick = 'clockStart()' value = 'Start'>
+  <input type = 'button' onclick = 'clockStop()' value = 'Stop'>
+
 
 <script>
 
@@ -39,20 +42,33 @@
 
     let hours = document.getElementById('hours');
     let hoursValue = date.getHours();
-    hours.innerHTML = (hoursValue > 10) ? hoursValue : '0' + hoursValue;
+    hours.innerHTML = (hoursValue >= 10) ? hoursValue : '0' + hoursValue;
 
         
     let minutes = document.getElementById('minutes');
     let minutesValue = date.getMinutes();
-    minutes.innerHTML = (minutesValue > 10) ? minutesValue : '0' + minutesValue;
+    minutes.innerHTML = (minutesValue >= 10) ? minutesValue : '0' + minutesValue;
 
 
     let seconds = document.getElementById('seconds');
     let secondsValue = date.getSeconds();
-    seconds.innerHTML = (secondsValue > 10) ? secondsValue : '0' + secondsValue; 
-  };
+    seconds.innerHTML = (secondsValue >= 10) ? secondsValue : '0' + secondsValue; 
+  }
 
-  setInterval(() => update(), 1000);
+  let timerId;
+
+  function clockStart() {
+    if (!timerId) {
+      timerId = setInterval(update, 1000);
+    }
+    update();
+  }
+
+  function clockStop() {
+      clearInterval(timerId);
+      timerId = null;
+  }
+  
 
 </script>
 
